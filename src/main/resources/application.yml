@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 5
+      pool-name: dbcp1
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://X.X.X.X:3307/auth?autoReconnect=true&useSSL=false
+    username: ${AUTH_DB_PWD:root}
+    password: ${AUTH_DB_USER:pwd}
+    type: com.zaxxer.hikari.HikariDataSource
+
+############################# Redis config #############################
+cache:
+  # pool config
+  pool:
+    maxIdle: 15
+    maxTotal: 30
+    maxWaitMillis: 6000
+    minIdle: 1
+    numTestsPerEvictionRun: 10
+    testOnBorrow: true
+    testOnReturn: true
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 6000
+  # enable redis
+  redis:
+    enabled: true
+# if flush all the cache when start up
+redis:
+  database: 0
+  host:
+    address: ${REDIS_ADDRESS:X.X.X.X}
+    password: ${REDIS_PWD:}
+    port: ${REDIS_PORT:7000}
+  setup:
+    flushdb: true
+
+ribbon:
+  ReadTimeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 10000
+

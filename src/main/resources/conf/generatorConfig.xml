@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 数据库驱动包位置 -->
+    <classPathEntry location="C:\Users\keets\.m2\repository\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar" />
+
+    <context id="DB2Tables" defaultModelType="flat" targetRuntime="MyBatis3">
+		<!-- 当表名或者字段名为 SQL 关键字的时候，可以设置该属性为 true，MBG 会自动给表名或字段名添加 `分隔符` -->
+		<property name="autoDelimitKeywords" value="true"/>
+
+		<!-- 这里的使用的**反单引号(`)**就是**分隔符**，**分隔符**可以用于**表名**或者**列名**。 -->
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+
+		<!-- 一般情况下由于 MBG 生成的注释信息没有任何价值，而且有时间戳的情况下每次生成的注释都不一样，使用**版本控制**的时候每次都会提交，因而一般情况下我们都会屏蔽注释信息 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接 URL、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.30.58:3306/auth" userId="root" password="root">
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa">-->
+        </jdbcConnection>
+
+		<!-- 这个元素的配置用来指定 JDBC 类型和 Java 类型如何转换 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成实体类的包名和位置，这里配置将生成的实体类放在 com.mjk.beans 这个包下 -->
+        <javaModelGenerator targetPackage="cn.superid.auth.auth.entity" targetProject="D:\workspace\OAuth-Service\src\main\java">
+			<property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 生成的 SQL 映射文件包名和位置，这里配置将生成的SQL映射文件放在 com.mjk.mapping 这个包下 -->
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="D:\workspace\OAuth-Service\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 生成 DAO 的包名和位置，这里配置将生成的 dao 类放在 com.mjk.dao 这个包下 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.superid.auth.auth.dao.mapper" targetProject="D:\workspace\OAuth-Service\src\main\java">
+            <!-- 在 targetPackage 的基础上，根据数据库的 schema 再生成一层 package，最终生成的类放在这个 package 下，默认为 false -->
+            <property name="enableSubPackages" value="true" />
+            <!-- 可以为所有生成的接口添加一个父接口，但是MBG只负责生成，不负责检查 -->
+        	<!-- <property name="rootInterface" value="com.mjk.service.dao.BaseMapper"/> -->
+        </javaClientGenerator>
+
+        <!-- 要生成哪些表(更改 tableName 和 domainObjectName 就可以) -->
+        <table tableName="user_tenant_access" domainObjectName="UserTenantAccess" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        	<!-- 指定生成的类需要继承的类 -->
+        	<!-- <property name="rootClass" value="com.mjk.beans.BaseEntity"/> -->
+        	<!-- 指定用于生成生成主键的方法，MySql 的SQL为：SELECT LAST_INSERT_ID()。 -->
+            <property name="useActualColumnNames" value="false" />
+            <!--<generatedKey column="ID" sqlStatement="MySql" type="post" identity="true"/>-->
+        	<!-- 该元素会在根据表中列名计算对象属性名之前先重命名列名，非常适合用于表中的列都有公用的前缀字符串的时候。 -->
+        	<!-- <columnRenamingRule searchString="^DEC_" replaceString="" />
+        	<columnRenamingRule searchString="^I_" replaceString="" /> -->
+        </table>
+    </context>
+</generatorConfiguration>

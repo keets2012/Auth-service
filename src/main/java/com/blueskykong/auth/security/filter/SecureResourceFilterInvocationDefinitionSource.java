@@ -27,7 +27,7 @@ public class SecureResourceFilterInvocationDefinitionSource implements FilterInv
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         logger.info("getAttributes");
-        //TODO:应该做instanceof
+        //应该做instanceof
         FilterInvocation filterInvocation = (FilterInvocation) o;
         //String method = filterInvocation.getHttpRequest().getMethod();
         String requestURI = filterInvocation.getRequestUrl();
@@ -61,9 +61,7 @@ public class SecureResourceFilterInvocationDefinitionSource implements FilterInv
         //可以有多个权限
         Collection<ConfigAttribute> atts = new ArrayList<>();
         ConfigAttribute c1 = new SecurityConfig("ROLE_USER");
-        ConfigAttribute c2 = new SecurityConfig("ROLE_ADMIN");
         atts.add(c1);
-        atts.add(c2);
         map.put("/api/permission/apiPermissions", atts);
     }
 }

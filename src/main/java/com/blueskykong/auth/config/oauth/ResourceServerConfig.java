@@ -38,11 +38,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     }
 
-    @Bean
+ /*   @Bean
     public CustomSecurityFilter customSecurityFilter() {
         return new CustomSecurityFilter();
     }
-
+*/
     @Bean
     public CustomLogoutHandler customLogoutHandler() {
         return new CustomLogoutHandler();

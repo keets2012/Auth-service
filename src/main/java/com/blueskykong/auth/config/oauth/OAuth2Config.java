@@ -48,7 +48,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        //security.addTokenEndpointAuthenticationFilter(new CustomSecurityFilter());
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 

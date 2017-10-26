@@ -1,6 +1,5 @@
 package com.blueskykong.auth.exception;
 
-import com.blueskykong.exception.ErrorCode;
 
 /**
  * Created by keets on 2016/12/5.

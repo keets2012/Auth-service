@@ -18,7 +18,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
-@MapperScan("cn.superid.auth.dao.mapper")
+@MapperScan("com.blueskykong.auth.dao.mapper")
 public class DatasourceConfig {
 
     @Bean

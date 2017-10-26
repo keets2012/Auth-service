@@ -2,7 +2,7 @@ package com.blueskykong.auth.client.fallback;
 
 import com.blueskykong.auth.client.feign.UserClient;
 import com.blueskykong.auth.exception.ErrorCodes;
-import com.blueskykong.exception.RemoteException;
+import com.blueskykong.auth.exception.RemoteException;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

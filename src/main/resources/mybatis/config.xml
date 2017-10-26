@@ -5,15 +5,10 @@
 <configuration>
     <typeAliases>
         <typeAlias alias="UUID" type="java.util.UUID"/>
-        <typeAlias alias="UUIDTypeHandler" type="cn.superid.common.mybatis.UuidTypeHandler"/>
-        <typeAlias alias="ShortList" type="java.util.List"/>
-        <typeAlias alias="ShortListHandler" type="com.blueskykong.auth.dao.typehandler.ShortListTypeHandler"/>
+        <typeAlias alias="UUIDTypeHandler" type="com.blueskykong.auth.dao.typehandler.UuidTypeHandler"/>
     </typeAliases>
 
     <typeHandlers>
-        <typeHandler handler="cn.superid.common.mybatis.UuidTypeHandler"/>
-        <typeHandler handler="com.blueskykong.auth.dao.typehandler.ShortListTypeHandler"/>
-
+        <typeHandler handler="com.blueskykong.auth.dao.typehandler.UuidTypeHandler"/>
     </typeHandlers>
-
 </configuration>

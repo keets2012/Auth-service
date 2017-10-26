@@ -57,8 +57,8 @@ public class CustomSecurityFilter extends AbstractSecurityInterceptor implements
         } finally {
 
             logger.info("through filter");
-            //super.afterInvocation(token, null);
-            throw new AccessDeniedException("no right");
+            super.afterInvocation(token, null);
+            //throw new AccessDeniedException("no right");
 
         }
 

@@ -74,7 +74,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         //checkUsernameAndPassword
         Map ret = new HashMap();
-        map.put("userId", UUID.randomUUID());
+        ret.put("userId", UUID.randomUUID().toString());
 
         return ret;
     }

@@ -13,8 +13,28 @@
       port: 9000
     ```
 5. 创建auth数据库，运行auth.sql
-6. 其他细节参考博客
+6. API级别权限验证修改的源码部分，可以参见我fork 的`spring-security-oauth`和`spring-cloud-security`。
+7. 其他细节参考博客
+
+
+笔者自己运行了可行：
+
+```yaml
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDkwNzMzMjcsIlgtQU9ITy1Vc2VySWQiOiIxNGY1MmE0OS0yYTgxLTRhMmYtOGI5Mi01ZmU0NzUzZGRmZGEiLCJ1c2VyX25hbWUiOiIxODM2MjkxNjcyNiIsImp0aSI6IjM5NDEzN2I5LTNjZGItNGUyNy04NGRjLWM5YjEyYzk3ZTA4YyIsImNsaWVudF9pZCI6ImZyb250ZW5kIiwic2NvcGUiOlsiYWxsIl19.pGZhGNVECg0b4LB_pYXTTVKjNn8FA5biM04Bhcd-MEE",
+    "token_type": "bearer",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiIxODM2MjkxNjcyNiIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiIzOTQxMzdiOS0zY2RiLTRlMjctODRkYy1jOWIxMmM5N2UwOGMiLCJleHAiOjE1MTE2MjIxMjcsIlgtQU9ITy1Vc2VySWQiOiIxNGY1MmE0OS0yYTgxLTRhMmYtOGI5Mi01ZmU0NzUzZGRmZGEiLCJqdGkiOiJkYTBmOTMxMS1lZjc0LTRiMjQtODViZi04ZTNjNDVhNGEyNzkiLCJjbGllbnRfaWQiOiJmcm9udGVuZCJ9.2MRdqEogAwbesRfj2TKoWhMazItBlpjbQx7dlgfFpHE",
+    "expires_in": 43199,
+    "scope": "all",
+    "X-AOHO-UserId": "14f52a49-2a81-4a2f-8b92-5fe4753ddfda",
+    "jti": "394137b9-3cdb-4e27-84dc-c9b12c97e08c",
+    "X-AOHO-ClientId": "frontend"
+}
+```
 
 [认证鉴权与API权限控制在微服务架构中的设计与实现（一）](http://blueskykong.com/2017/10/19/security1/)   
 [认证鉴权与API权限控制在微服务架构中的设计与实现（二）](http://blueskykong.com/2017/10/22/security2/)   
 [认证鉴权与API权限控制在微服务架构中的设计与实现（三）](http://blueskykong.com/2017/10/24/security3/)
+
+
+*有问题联系 aoho002#gmail.com*

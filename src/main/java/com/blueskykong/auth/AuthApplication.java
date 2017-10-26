@@ -14,7 +14,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  */
 
 @SpringBootApplication
-@EnableFeignClients
+//@EnableFeignClients
 //@EnableDiscoveryClient
 public class AuthApplication {
 

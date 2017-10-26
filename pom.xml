@@ -69,14 +69,14 @@
             <version>${jwt.version}</version>
         </dependency>
         <dependency>
-            <groupId>cn.superid.cloud</groupId>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
-            <version>1.2.1-SNAPSHOT</version>
+            <!--<version>1.2.1-SNAPSHOT</version>-->
         </dependency>
         <dependency>
-            <groupId>cn.superid.cloud</groupId>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
-            <version>1.2.1-SNAPSHOT</version>
+            <!--<version>1.2.1-SNAPSHOT</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,11 +92,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- db-->
         <dependency>

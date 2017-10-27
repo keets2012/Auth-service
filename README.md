@@ -15,6 +15,7 @@
 5. 创建auth数据库，运行auth.sql
 6. API级别权限验证修改的源码部分，可以参见我fork 的`spring-security-oauth`和`spring-cloud-security`。
 7. 其他细节参考博客
+8. **你的star是对我最好的鼓励^_^**
 
 
 笔者自己运行了可行：

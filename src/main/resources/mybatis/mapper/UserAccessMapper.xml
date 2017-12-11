@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blueskykong.auth.dao.mapper.UserTenantAccessMapper" >
+  <resultMap id="BaseResultMap" type="com.blueskykong.auth.entity.UserAccess" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="OTHER" typeHandler="UUIDTypeHandler" />
+    <result column="access_level" property="accessLevel" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, access_level
+  </sql>
+
+  <delete id="deleteByUserId" parameterType="UUID">
+    delete from user_access
+    where user_id = #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+  </delete>
+
+  <select id="securitySelectByUserId" parameterType="java.util.UUID" resultMap="BaseResultMap">
+    select id,user_id,tenant_id,access_level
+    from user_access
+    where user_id =#{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}/*SECURITY_DAS|USER:TENANT:and tenant_id|SECURITY_DAE*/;
+  </select>
+  <select id="securitySelectByUserIdWithFakeDoc" parameterType="java.util.UUID" resultMap="BaseResultMap">
+    select id,user_id,tenant_id,access_level
+    from user_access
+    where user_id =#{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}/*SECURITY_DAS|USER:TENANT:and tenant_id,TOKENKEY:DOCUMENT: and tenant_id|SECURITY_DAE*/;
+  </select>
+
+  <insert id="securityInsertRecord" parameterType="com.blueskykong.auth.entity.UserAccess" >
+    insert into user_access /*SECURITY_IU_DAS|USER:TENANT:tenantId|SECURITY_IU_DAE*/(user_id,
+    tenant_id, access_level
+    )
+    values (#{userId,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+    #{tenantId,jdbcType=OTHER,typeHandler=UUIDTypeHandler}, #{accessLevel,jdbcType=INTEGER}
+    )
+  </insert>
+  <update id="securityUpdateRecord" parameterType="com.blueskykong.auth.entity.UserAccess" >
+    update user_access/*SECURITY_IU_DAS|USER:TENANT:tenantId|SECURITY_IU_DAE*/
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="tenantId != null" >
+        tenant_id = #{tenantId,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="accessLevel != null" >
+        access_level = #{accessLevel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT} and tenant_id =
+    #{oldTenantId,jdbcType=OTHER,typeHandler=UUIDTypeHandler}/*SECURITY_DAS|USER:TENANT:and tenant_id|SECURITY_DAE*/
+  </update>
+  <update id="securityUpdate" parameterType="java.util.Map" >
+    update user_access/*SECURITY_IU_DAS|USER:TENANT:tenantId|SECURITY_IU_DAE*/
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="tenantId != null" >
+        tenant_id = #{tenantId,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="accessLevel != null" >
+        access_level = #{accessLevel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

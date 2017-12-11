@@ -7,6 +7,7 @@ import com.blueskykong.auth.entity.ClientSecret;
 import com.blueskykong.auth.entity.ClientSecretStatus;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,6 +16,7 @@ import java.util.UUID;
  * @author keets
  * @date 2017/10/18
  */
+@Service
 public class ClientSecretService {
     @Autowired
     private ClientSecretDAO clientSecretDao;
@@ -35,7 +37,8 @@ public class ClientSecretService {
                 .withClientId(clientId)
                 .build();
         List<ClientSecret> results = clientSecretDao.get(clientSecret);
-        if (results.size() != 0) {
+        System.out.println(results.size());
+        if (results.size() >= 1) {
             return convert(results.get(0));
         }
         return null;
@@ -72,10 +75,9 @@ public class ClientSecretService {
         ApiClientDTO apiClient = new ApiClientDTO();
         apiClient.setClientId(clientSecret.getClientId());
         apiClient.setClientSecret(clientSecret.getClientSecret());
-        apiClient.setStatus(clientSecret.getStatus().toString());
+/*        apiClient.setStatus(clientSecret.getStatus().toString());
         apiClient.setPurpose(clientSecret.getPurpose());
-        apiClient.setTenantId(clientSecret.getTenantId());
-        apiClient.setUserId(clientSecret.getUserId());
+        apiClient.setUserId(clientSecret.getUserId());*/
         return apiClient;
     }
 

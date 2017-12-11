@@ -2,6 +2,8 @@ package com.blueskykong.auth.config;
 
 
 import com.blueskykong.auth.rest.ClientSecretResource;
+import com.blueskykong.auth.rest.SecurityResource;
+import com.blueskykong.auth.rest.UserRoleResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,7 @@ public class JerseyConfig extends ResourceConfig {
         register(RequestContextFilter.class);
         register(ClientSecretResource.class);
         //配置restful package.
-
+        register(SecurityResource.class);
+        register(UserRoleResource.class);
     }
 }

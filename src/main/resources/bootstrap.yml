@@ -1,6 +1,36 @@
 server:
   port: 9000
 
+spring:
+  cloud:
+    consul:
+      discovery:
+        preferIpAddress: true
+        enabled: true
+        register: true
+        service-name: auth
+        health-check-interval: 10s
+        health-check-timeout: 20s
+        heartbeat:
+          enabled: true
+        ip-address: 192.168.1.77
+        port: ${server.port}
+        lifecycle:
+          enabled: true
+        scheme: http
+        prefer-agent-address: false
+        register-health-check: true
+        tags: master
+        query-passing: true
+      retry:
+        initial-interval: 1000
+        max-attempts: 4
+        max-interval: 1000
+      host: 192.168.1.200
+      port: 8500
+
 ---
 spring:
   profiles: default
+  application:
+    name: authserver

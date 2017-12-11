@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blueskykong.auth.dao.mapper.PermissionMapper">
+    <resultMap id="BaseResultMap" type="com.blueskykong.auth.entity.Permission">
+        <id column="id" typeHandler="UUIDTypeHandler" property="id"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, permission, description
+    </sql>
+
+    <select id="selectById" parameterType="UUID" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from permission
+        where id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from permission
+    </select>
+
+    <delete id="deleteById" parameterType="UUID">
+        DELETE FROM permission
+        WHERE id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </delete>
+
+    <insert id="insert" parameterType="com.blueskykong.auth.entity.Permission">
+        insert into permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="permission != null">
+                permission,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+            </if>
+            <if test="permission != null">
+                #{permission,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.blueskykong.auth.entity.Permission">
+        update permission
+        <set>
+            <if test="permission != null">
+                permission = #{permission,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </update>
+
+    <update id="updateName" parameterType="java.lang.String">
+        UPDATE permission
+        SET permission = #{permission,jdbcType=VARCHAR}
+        WHERE id = #{id,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </update>
+
+
+    <select id="selectByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT DISTINCT p.id, p.permission,p.description
+        FROM permission p
+        INNER JOIN role_permission rp ON p.id = rp.permission_id
+        INNER JOIN user_role utr ON utr.role_id = rp.role_id
+        WHERE utr.user_id = #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+    </select>
+
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blueskykong.auth.dao.mapper.UserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.blueskykong.auth.entity.UserRole">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" typeHandler="UUIDTypeHandler" property="userId" />
+    <result column="role_id" typeHandler="UUIDTypeHandler" property="roleId" />
+    <result column="is_default" jdbcType="BIT" property="isDefault" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, user_id, role_id, is_default
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+
+  <select id="selectByUId"  parameterType="UUID" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_role
+    where user_id = #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+  </select>
+
+
+  <delete id="deleteById" parameterType="java.lang.Long">
+    delete from user_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <delete id="deleteByUserId" parameterType="UUID">
+    delete from user_role
+    where user_id = #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler}
+  </delete>
+
+  <insert id="insert" parameterType="com.blueskykong.auth.entity.UserRole">
+    insert into user_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="isDefault != null">
+        is_default,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="roleId != null">
+        #{roleId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="isDefault != null">
+        #{isDefault,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.blueskykong.auth.entity.UserRole">
+    update user_role
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,javaType=UUID,jdbcType=OTHER,typeHandler=UUIDTypeHandler},
+      </if>
+      <if test="isDefault != null">
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <resultMap id="UserRoleDTO" type="com.blueskykong.auth.dto.UserRoleDTO">
+    <result column="user_id" typeHandler="UUIDTypeHandler" property="userId" />
+    <result column="role_id" typeHandler="UUIDTypeHandler" property="roleId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+
+  <select id="selectUserRoleList" resultMap="UserRoleDTO" parameterType="UUID">
+    select utr.user_id, utr.role_id, r.name, r.description
+    from role r, user_role utr
+    where r.id = utr.role_id
+    and utr.user_id = #{userId,typeHandler=UUIDTypeHandler}
+  </select>
+
+</mapper>

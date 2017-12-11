@@ -1,5 +1,12 @@
 ## 项目使用方法
 
+### 2017.12.11 更新
+
+本次更新主要是增加了user,role,permission的相应接口。整合了微服务架构下，网关与auth权限服务、后端backend服务。
+
+具体见博客[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/)
+
+
 ### 2017.11.3 更新
 
 **去掉了Parent依赖，安装后，直接`mvn clean spring-boot:run` (maven 如果没装我也不好说啥)**

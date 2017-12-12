@@ -2,6 +2,11 @@
 
 ### 2017.12.11 更新
 
+**单独的整合项目地址为：   
+GitHub：https://github.com/keets2012/microservice-integration   
+或者 码云：https://gitee.com/keets/microservice-integration**
+
+
 本次更新主要是增加了user,role,permission的相应接口。整合了微服务架构下，网关与auth权限服务、后端backend服务。
 
 具体见博客[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/) 。感谢黄同学@CANGWU 对Spring EL部分做的修改。

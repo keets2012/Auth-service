@@ -29,13 +29,13 @@ method: post
 url: http://localhost:9000/oauth/token?grant_type=authorization_code
 header:
 {
-	Authorization: Basic ZnJvbnRlbmQ6ZnJvbnRlbmQ=,
-	Content-Type: application/x-www-form-urlencoded
+  Authorization: Basic ZnJvbnRlbmQ6ZnJvbnRlbmQ=,
+  Content-Type: application/x-www-form-urlencoded
 }
 body:
 {
-	code: xGjrTm,
-	redirect_url: http://localhost:8080
+  code: xGjrTm,
+  redirect_url: http://localhost:8080
 }
 ```
 

@@ -1,5 +1,6 @@
 package com.blueskykong.auth.config.oauth;
 
+import com.blueskykong.auth.security.CodeAuthenticationProvider;
 import com.blueskykong.auth.security.CustomAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +16,13 @@ public class AuthenticationManagerConfig extends GlobalAuthenticationConfigurerA
 
     @Autowired
     CustomAuthenticationProvider customAuthenticationProvider;
+    @Autowired
+    CodeAuthenticationProvider codeAuthenticationProvider;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(customAuthenticationProvider);
+        auth.authenticationProvider(codeAuthenticationProvider);
     }
 
 }

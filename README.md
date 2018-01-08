@@ -1,5 +1,45 @@
 ## 项目使用方法
 
+
+### 2018.1.8 更新
+本次更新添加了对授权码模式的使用
+
+授权码模式需要用户登录，所以借助浏览器
+
+首先给数据库表中的`oauth_client_details`表中`client_id`为`frontend`的行`authorized_grant_types`添加`authorization_code`，`web_server_redirect_uri`设置为`http://localhost:8080`。表示该客户端允许授权码模式以及授权码回调地址为http://localhost:8080
+
+浏览器访问地址
+
+```yaml
+http://localhost:9000/oauth/authorize?response_type=code&client_id=frontend&
+scope=all&redirect_uri=http://localhost:8080
+```
+
+
+进入登录授权页面并同意授权，从回调地址中获取授权码
+
+```yaml
+http://localhost:8080/?code=xGjrTm
+```
+
+通过授权码获取access_token
+
+```yaml
+method: post 
+url: http://localhost:9000/oauth/token?grant_type=authorization_code
+header:
+{
+	Authorization: Basic ZnJvbnRlbmQ6ZnJvbnRlbmQ=,
+	Content-Type: application/x-www-form-urlencoded
+}
+body:
+{
+	code: xGjrTm,
+	redirect_url: http://localhost:8080
+}
+```
+
+
 ### 2017.12.11 更新
 
 **单独的整合项目地址为：   

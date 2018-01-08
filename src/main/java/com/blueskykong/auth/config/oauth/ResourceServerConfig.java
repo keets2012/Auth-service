@@ -18,25 +18,26 @@ import org.springframework.security.web.authentication.logout.HttpStatusReturnin
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .requestMatchers().antMatchers("/**")
-                .and().authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-                .and().logout()
-                .logoutUrl("/logout")
-                .clearAuthentication(true)
-                .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
-                .addLogoutHandler(customLogoutHandler());
-
-        //http.antMatcher("/api/**").addFilterAt(customSecurityFilter(), FilterSecurityInterceptor.class);
-
-    }
+//
+//    @Override
+//    public void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
+//                .requestMatchers().antMatchers("/**")
+//                .and().authorizeRequests()
+//                .antMatchers("/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and().formLogin().permitAll()
+//                .and().logout()
+//                .logoutUrl("/logout")
+//                .clearAuthentication(true)
+//                .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
+//                .addLogoutHandler(customLogoutHandler());
+//
+//        //http.antMatcher("/api/**").addFilterAt(customSecurityFilter(), FilterSecurityInterceptor.class);
+//
+//    }
 
  /*   @Bean
     public CustomSecurityFilter customSecurityFilter() {

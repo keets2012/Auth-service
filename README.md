@@ -36,7 +36,7 @@ header:
 body:
 {
   code: xGjrTm,
-  redirect_url: http://localhost:8080
+  redirect_uri: http://localhost:8080
 }
 ```
 

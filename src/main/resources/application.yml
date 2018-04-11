@@ -10,32 +10,16 @@ spring:
     username: ${AUTH_DB_PWD:simu}
     password: ${AUTH_DB_USER:simu123}
     type: com.zaxxer.hikari.HikariDataSource
-
-############################# Redis config #############################
-cache:
-  # pool config
-  pool:
-    maxIdle: 15
-    maxTotal: 30
-    maxWaitMillis: 6000
-    minIdle: 1
-    numTestsPerEvictionRun: 10
-    testOnBorrow: true
-    testOnReturn: true
-    testWhileIdle: true
-    timeBetweenEvictionRunsMillis: 6000
-  # enable redis
   redis:
-    enabled: true
-# if flush all the cache when start up
-redis:
-  database: 0
-  host:
-    address: ${REDIS_ADDRESS:116.62.146.35}
-    password: ${REDIS_PWD:}
-    port: ${REDIS_PORT:7000}
-  setup:
-    flushdb: true
+    database: 0
+    host: ${REDIS_ADDRESS:192.168.1.204}
+    password: ${REDIS_PWD:Superid123}
+    timeout: 3000
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-wait: -1
+      max-idle: 8
 
 ribbon:
   ReadTimeout: 10000

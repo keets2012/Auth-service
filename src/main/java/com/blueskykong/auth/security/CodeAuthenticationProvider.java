@@ -1,14 +1,11 @@
 package com.blueskykong.auth.security;
 
 import com.auth0.jwt.internal.org.apache.commons.lang3.StringUtils;
-import com.blueskykong.auth.client.feign.UserClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +19,6 @@ import java.util.UUID;
 @Component
 public class CodeAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
-    private UserClient userClient;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

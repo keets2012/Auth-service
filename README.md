@@ -85,9 +85,9 @@ body:
 
 ### 写在最后
 
-项目整合如果遇到问题，可以加入qq群，最好大家都能自行搞定。。
+项目整合如果遇到问题，可以加入qq群交流。
 
-![](http://ovcjgn2x0.bkt.clouddn.com/IMG_0806.JPG)
+![](http://ovcjgn2x0.bkt.clouddn.com/qq-chat.JPG)
 
 *有问题联系 aoho002#gmail.com*
 

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/keets2012/Auth-service.svg?branch=master)](https://travis-ci.org/keets2012/Auth-service)
 ## quick start
 本次对项目结构进行了更新，token的存储机制基于redis，当然存储方式可以自由切换，Spring Security提供了SPI的多种实现。
 

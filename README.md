@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/keets2012/Auth-service.svg?branch=master)](https://travis-ci.org/keets2012/Auth-service)
+[![codebeat badge](https://codebeat.co/badges/4594f615-67af-46b0-9adf-b69b476dc250)](https://codebeat.co/projects/github-com-keets2012-auth-service-master)
+![](https://img.shields.io/badge/license-MIT-000000.svg)
 ## quick start
 本次对项目结构进行了更新，token的存储机制基于redis，当然存储方式可以自由切换，Spring Security提供了SPI的多种实现。
 

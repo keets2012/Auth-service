@@ -92,4 +92,6 @@ body:
 
 *有问题联系 aoho002#gmail.com*
 
+### MIT License
 
+Copyright (c) 2018 aoho

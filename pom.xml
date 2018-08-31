@@ -6,7 +6,7 @@
 
     <artifactId>Auth-Service</artifactId>
     <groupId>com.blueskykong</groupId>
-    <version>2.0-SNAPSHOT</version>
+    <version>1.0-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>OAuth Service</name>

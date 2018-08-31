@@ -44,10 +44,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         return new CustomSecurityFilter();
     }
 */
-    @Bean
-    public CustomLogoutHandler customLogoutHandler() {
-        return new CustomLogoutHandler();
-    }
+
 
 
     @Override

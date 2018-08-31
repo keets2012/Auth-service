@@ -1,12 +1,7 @@
 spring:
   datasource:
-    hikari:
-      connection-test-query: SELECT 1
-      minimum-idle: 1
-      maximum-pool-size: 5
-      pool-name: dbcp1
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/auth_test?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://192.168.1.204:3306/auth_test?autoReconnect=true&useSSL=false
     username: ${AUTH_DB_PWD:simu}
     password: ${AUTH_DB_USER:simu123}
     type: com.zaxxer.hikari.HikariDataSource
@@ -15,11 +10,6 @@ spring:
     host: localhost
     password: pass
     timeout: 3000
-    pool:
-      max-active: 8
-      min-idle: 0
-      max-wait: -1
-      max-idle: 8
     port: 6379
 
 ribbon:

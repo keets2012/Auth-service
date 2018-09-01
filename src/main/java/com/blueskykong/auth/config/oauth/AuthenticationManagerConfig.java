@@ -25,7 +25,4 @@ public class AuthenticationManagerConfig extends GlobalAuthenticationConfigurerA
         auth.authenticationProvider(codeAuthenticationProvider);
     }
 
-
-
-
 }

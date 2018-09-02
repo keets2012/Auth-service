@@ -1,6 +1,7 @@
 package com.blueskykong.auth.config.oauth;
 
 import com.blueskykong.auth.security.CustomAuthorizationTokenServices;
+import com.blueskykong.auth.security.CustomRedisTokenStore;
 import com.blueskykong.auth.security.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -20,7 +21,6 @@ import org.springframework.security.oauth2.provider.error.WebResponseExceptionTr
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.sql.DataSource;
 import java.net.UnknownHostException;
@@ -52,7 +52,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Bean
     public TokenStore tokenStore(RedisConnectionFactory redisConnectionFactory) {
-        return new RedisTokenStore(redisConnectionFactory);
+        return new CustomRedisTokenStore(redisConnectionFactory);
     }
 
     @Bean
@@ -63,7 +63,9 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         //security.addTokenEndpointAuthenticationFilter(new CustomSecurityFilter());
-        security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+        security
+                .tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()");
     }
 
     @Override

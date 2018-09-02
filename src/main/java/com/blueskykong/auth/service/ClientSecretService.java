@@ -75,6 +75,8 @@ public class ClientSecretService {
         ApiClientDTO apiClient = new ApiClientDTO();
         apiClient.setClientId(clientSecret.getClientId());
         apiClient.setClientSecret(clientSecret.getClientSecret());
+
+        apiClient.setStatus(clientSecret.getStatus().name());
 /*        apiClient.setStatus(clientSecret.getStatus().toString());
         apiClient.setPurpose(clientSecret.getPurpose());
         apiClient.setUserId(clientSecret.getUserId());*/

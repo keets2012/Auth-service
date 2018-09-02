@@ -1,16 +1,17 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.204:3306/auth_test?autoReconnect=true&useSSL=false
-    username: ${AUTH_DB_PWD:simu}
+    jdbc-url: jdbc:mysql://192.168.1.204:3306/auth_test?autoReconnect=true&useSSL=false
+    username: ${AUTH_DB_PWD:root}
     password: ${AUTH_DB_USER:simu123}
     type: com.zaxxer.hikari.HikariDataSource
   redis:
-    database: 0
-    host: localhost
-    password: pass
+    database: 13
+    host: 192.168.1.204
+    password: Superid123
     timeout: 3000
-    port: 6379
+    port: 6378
+    ssl: false
 
 ribbon:
   ReadTimeout: 10000

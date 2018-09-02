@@ -12,20 +12,20 @@ import org.springframework.security.config.annotation.authentication.configurati
  * @date 2017/9/25
  */
 //@Configuration
-public class AuthenticationManagerConfig extends GlobalAuthenticationConfigurerAdapter {
-
-    @Autowired
-    CustomAuthenticationProvider customAuthenticationProvider;
-    @Autowired
-    CodeAuthenticationProvider codeAuthenticationProvider;
-
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(customAuthenticationProvider);
-        auth.authenticationProvider(codeAuthenticationProvider);
-    }
-
-
-
-
-}
+//public class AuthenticationManagerConfig extends GlobalAuthenticationConfigurerAdapter {
+//
+//    @Autowired
+//    CustomAuthenticationProvider customAuthenticationProvider;
+//    @Autowired
+//    CodeAuthenticationProvider codeAuthenticationProvider;
+//
+//    @Override
+//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(customAuthenticationProvider);
+//        auth.authenticationProvider(codeAuthenticationProvider);
+//    }
+//
+//
+//
+//
+//}

@@ -1,0 +1,14 @@
+mysql-auth:
+  restart: always
+  image: mysql:5.7
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=_123456_
+    - MYSQL_DATABASE=auth
+
+redis:
+  container_name: auth-redis
+  image: 'redis:4'
+  ports:
+    - '6379:6379'

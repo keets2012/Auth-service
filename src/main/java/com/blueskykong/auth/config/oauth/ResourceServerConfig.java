@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.logout.HttpStatusReturnin
  * @date 2017/9/25
  */
 @Configuration
-@EnableResourceServer
+//@EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 //
 //    @Override
@@ -44,10 +44,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         return new CustomSecurityFilter();
     }
 */
-    @Bean
-    public CustomLogoutHandler customLogoutHandler() {
-        return new CustomLogoutHandler();
-    }
+
 
 
     @Override

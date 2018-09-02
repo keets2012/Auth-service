@@ -33,7 +33,7 @@ public class CustomLogoutHandler implements LogoutHandler {
         String token = request.getHeader("Authorization");
         Assert.hasText(token, "token must be set");
         if (isJwtBearerToken(token)) {
-            token = token.substring(6);
+            token = token.substring(6).trim();
             OAuth2AccessToken existingAccessToken = tokenStore.readAccessToken(token);
             OAuth2RefreshToken refreshToken;
             if (existingAccessToken != null) {

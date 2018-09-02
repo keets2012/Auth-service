@@ -1,17 +1,22 @@
 spring:
   datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 5
+      pool-name: dbcp1
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://192.168.1.204:3306/auth_test?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/auth_test?autoReconnect=true&useSSL=false
     username: ${AUTH_DB_PWD:root}
-    password: ${AUTH_DB_USER:simu123}
+    password: ${AUTH_DB_USER:root}
+    schema[0]: classpath:/auth.sql
     type: com.zaxxer.hikari.HikariDataSource
   redis:
-    database: 13
-    host: 192.168.1.204
-    password: Superid123
+    database: 0
+    host: locahost
+    password: password
     timeout: 3000
     port: 6378
-    ssl: false
 
 ribbon:
   ReadTimeout: 10000
@@ -24,4 +29,12 @@ hystrix:
           strategy: THREAD
           thread:
             timeoutInMilliseconds: 10000
+management:
+  health:
+    db:
+      enabled: false
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
+  config-location: classpath:/mybatis/config.xml
 

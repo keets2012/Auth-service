@@ -2,6 +2,7 @@ package com.blueskykong.auth.config.oauth;
 
 import com.blueskykong.auth.security.CustomAuthorizationTokenServices;
 import com.blueskykong.auth.security.CustomTokenEnhancer;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -43,7 +44,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     public OAuth2Config(AuthenticationManager authenticationManager, WebResponseExceptionTranslator webResponseExceptionTranslator,
-                        DataSource dataSource, RedisConnectionFactory redisConnectionFactory) {
+                        HikariDataSource dataSource, RedisConnectionFactory redisConnectionFactory) {
         this.authenticationManager = authenticationManager;
         this.webResponseExceptionTranslator = webResponseExceptionTranslator;
         this.dataSource = dataSource;
@@ -56,7 +57,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     }
 
     @Bean
-    public JdbcClientDetailsService clientDetailsService(DataSource dataSource) {
+    public JdbcClientDetailsService clientDetailsService() {
         return new JdbcClientDetailsService(dataSource);
     }
 
@@ -68,7 +69,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(clientDetailsService(dataSource));
+        clients.withClientDetails(clientDetailsService());
     }
 
     @Override
@@ -93,7 +94,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         customTokenServices.setTokenStore(tokenStore(redisConnectionFactory));
         customTokenServices.setSupportRefreshToken(true);
         customTokenServices.setReuseRefreshToken(false);
-        customTokenServices.setClientDetailsService(clientDetailsService(dataSource));
+        customTokenServices.setClientDetailsService(clientDetailsService());
         customTokenServices.setTokenEnhancer(accessTokenConverter());
         return customTokenServices;
     }

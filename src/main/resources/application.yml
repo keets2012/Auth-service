@@ -5,8 +5,8 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
       pool-name: dbcp1
-    driver-source-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://localhost:3306/auth?autoReconnect=true&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth?autoReconnect=true&useSSL=false
     username: ${AUTH_DB_PWD:root}
     password: ${AUTH_DB_USER:_123456_}
     schema[0]: classpath:/auth.sql

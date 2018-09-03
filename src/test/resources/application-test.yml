@@ -1,0 +1,19 @@
+
+
+ribbon:
+  ReadTimeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 10000
+management:
+  health:
+    db:
+      enabled: false
+
+

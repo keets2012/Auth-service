@@ -1,6 +1,7 @@
 package com.blueskykong.auth;
 
 
+import com.blueskykong.auth.config.BaseServiceTest;
 import com.blueskykong.auth.dao.ClientSecretDAO;
 import com.blueskykong.auth.dto.ApiClientDTO;
 import com.blueskykong.auth.entity.ClientSecret;
@@ -11,11 +12,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -24,8 +26,10 @@ import static org.mockito.Mockito.when;
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-public class AuthApplicationTest {
+@SpringBootTest("classpath:application-test.yml")
+@DirtiesContext
+//@ContextConfiguration(locations = {"classpath:application-test.yml"})
+public class AuthApplicationTest extends BaseServiceTest {
 
     @Mock
     private ClientSecretDAO clientSecretDao;
@@ -50,7 +54,7 @@ public class AuthApplicationTest {
     @Test
     public void getClientSecretByClientIdTest() {
         ApiClientDTO apiClientDTO = clientSecretService.getClientSecretByClientId("test");
-        Assert.assertEquals(apiClientDTO.getClientSecret(),"test" );
+        Assert.assertEquals(apiClientDTO.getClientSecret(), "test");
     }
 
 

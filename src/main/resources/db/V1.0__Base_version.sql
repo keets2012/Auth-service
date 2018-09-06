@@ -77,7 +77,7 @@ CREATE TABLE `oauth_client_details` (
 
 -- ----------------------------
 
-INSERT INTO `oauth_client_details` VALUES ('frontend', null, 'frontend', 'all', 'password,refresh_token', null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `oauth_client_details` VALUES ('frontend', null, '$e0801$65x9sjjnRPuKmqaFn3mICtPYnSWrjE7OB/pKzKTAI4ryhmVoa04cus+9sJcSAFKXZaJ8lcPO1I9H22TZk6EN4A==$o+ZWccaWXSA2t7TxE5VBRvz2W8psujU3RPPvejvNs4U=', 'all', 'password,refresh_token,authorization_code', 'http://localhost:8080', null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 

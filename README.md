@@ -52,8 +52,8 @@ GitHub：https://github.com/keets2012/microservice-integration
 6. **你的star是对我最好的鼓励^_^**
 
 进行请求获取Token授权：
-![head](http://ovcjgn2x0.bkt.clouddn.com/login1-header.png "头部信息")
-![form](http://ovcjgn2x0.bkt.clouddn.com/loginform2.png "表单信息")
+![head](http://image.blueskykong.com/login1-header1.png "头部信息")
+![form](http://image.blueskykong.com/loginform3.png "表单信息")
 
 
 笔者自己运行了结果如下：
@@ -115,7 +115,7 @@ body:
 
 项目整合如果遇到问题，可以加入qq群交流。
 
-![](http://ovcjgn2x0.bkt.clouddn.com/qq-chat.JPG)
+![](http://image.blueskykong.com/qq-chat1.JPG)
 
 *有问题联系 aoho002#gmail.com*
 

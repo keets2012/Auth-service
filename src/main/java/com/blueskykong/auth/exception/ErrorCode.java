@@ -1,5 +1,6 @@
 package com.blueskykong.auth.exception;
 
+
 public class ErrorCode {
 
     private final int code;

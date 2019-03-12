@@ -1,10 +1,5 @@
 package com.blueskykong.auth.properties;
 
-/**
- *
- * @author keets
- * @date 2016/12/5
- */
 public class RedisProperties {
 
     private String host;

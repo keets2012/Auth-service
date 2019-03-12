@@ -7,10 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.UUID;
 
-
-/**
- * @author keets
- */
 public interface UserRoleMapper {
 
     int deleteById(Long id);

@@ -5,9 +5,8 @@ import net.sf.oval.constraint.NotBlank;
 
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
-/**
- * Created by keets on 2016/12/5.
- */
+
+
 public class ApiClientDTO {
 
     @NotBlank(message = ErrorCodes.CLIENT_ID_IS_NULL_STR)

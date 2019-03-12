@@ -6,10 +6,6 @@ import lombok.Data;
 
 import java.util.UUID;
 
-/**
- * Created by keets on 2017/11/22.
- */
-
 @JsonPropertyOrder({
         "id",
         "name",

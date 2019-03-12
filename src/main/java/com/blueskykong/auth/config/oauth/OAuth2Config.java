@@ -32,10 +32,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.net.UnknownHostException;
 
-/**
- * Created by keets on 2017/9/25.
- */
-
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {

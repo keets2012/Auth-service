@@ -16,9 +16,6 @@ import javax.servlet.*;
 import java.io.IOException;
 
 
-/**
- * @author keets
- */
 public class CustomSecurityFilter extends AbstractSecurityInterceptor implements Filter {
     private Logger logger = LoggerFactory.getLogger(CustomSecurityFilter.class);
 

@@ -1,6 +1,5 @@
 package com.blueskykong.auth.service;
 
-
 import com.blueskykong.auth.dao.ClientSecretDAO;
 import com.blueskykong.auth.dto.ApiClientDTO;
 import com.blueskykong.auth.entity.ClientSecret;

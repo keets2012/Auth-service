@@ -11,10 +11,6 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.ApplicationPath;
 
 
-/**
- * @author keets
- * @date 2017/9/5
- */
 @Component
 @ApplicationPath("api")
 public class JerseyConfig extends ResourceConfig {

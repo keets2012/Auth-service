@@ -4,10 +4,6 @@ import lombok.Data;
 
 import java.util.UUID;
 
-/**
- * @author keets
- * @date 2017/12/5
- */
 @Data
 public class UserRole {
     private Long id;

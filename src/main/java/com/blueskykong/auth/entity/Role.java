@@ -5,10 +5,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-/**
- * @author keets
- * @date 2017/11/22
- */
+
 @Data
 public class Role {
 

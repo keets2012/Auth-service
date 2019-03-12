@@ -7,9 +7,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-/**
- * Created by keets on 2016/12/5.
- */
+
 @Data
 public abstract class BaseEntity implements Serializable {
 

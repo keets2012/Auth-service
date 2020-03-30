@@ -5,11 +5,11 @@
 ## change logs
 
 - 2018.9.1    
-	
+
 	版本升到`2.0-SNAPSHOT`，欲使用`sb1.5.x`版本，请切换到TAG `1.0-RELEASE`。by [CANGWU](https://github.com/CANGWU)
-  
+
   Spring Cloud Security 升级到`Finchley.RELEASE`，Spring Boot由1.5.X升级到2.0.X。
-    
+
     ```xml
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -17,7 +17,7 @@
             <version>Finchley.RELEASE</version>
        </dependency>
     ```
-    
+
     ```xml
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -97,7 +97,7 @@ http://localhost:8080/?code=xGjrTm
 通过授权码获取access_token
 
 ```yaml
-method: post 
+method: post
 url: http://localhost:9000/oauth/token?grant_type=authorization_code
 header:
 {
@@ -113,9 +113,11 @@ body:
 
 ### 写在最后
 
-项目整合如果遇到问题，可以加入qq群交流。
+项目整合如果遇到问题，可以加入qq群(649932629)交流。
 
 ![](http://image.blueskykong.com/qq-chat1.JPG)
+
+ps: qq交流群已设置付费，可以过滤很多广告，营造高质量的技术交流群。
 
 *有问题联系 aoho002#gmail.com*
 
